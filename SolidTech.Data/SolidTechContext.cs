@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SolidTech.Data.Configuration;
 using SolidTech.Data.Entities;
 
 namespace SolidTech.Data
@@ -15,10 +16,13 @@ namespace SolidTech.Data
         }
 
         public DbSet<ProjectCategory> ProjectCategories { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ProjectCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
