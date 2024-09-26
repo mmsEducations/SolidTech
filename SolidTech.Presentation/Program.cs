@@ -1,6 +1,16 @@
+using SolidTech.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();//Uygulamada Controller ve View yapýsnýn kullanabilmek için bu servisi ekliyoruz 
+
+//appsetings.json 'dan Connection bilgilerini al ve Data katmanýndaki Constructor'a aktar
+//builder.Services.AddDbContext<SolidTechContext>(options =>
+//{
+//    options.UseSqlServer("Server=.;Database=SolidTechDb;Trusted_Connection=True;Encrypt=False");
+//});
+
+builder.Services.AddDbContext<SolidTechContext>();
 
 var app = builder.Build();
 
