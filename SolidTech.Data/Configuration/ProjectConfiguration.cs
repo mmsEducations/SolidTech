@@ -15,8 +15,8 @@ namespace SolidTech.Data.Configuration
                    .HasMaxLength(200);
 
             builder.Property(x => x.Image)
-             .IsRequired()
-             .HasMaxLength(500);
+             .HasMaxLength(int.MaxValue)
+             .IsRequired();
 
             builder.Property(x => x.Order)
                    .IsRequired();
@@ -24,10 +24,16 @@ namespace SolidTech.Data.Configuration
             builder.Property(x => x.CreaDate)
                    .IsRequired();
 
+            //Bir project tek bir Category'ye sahiptir,Bir categorinin sonsuz tane projesi olabilir
             builder.HasOne(x => x.ProjectCategory)
                    .WithMany()
                    .HasForeignKey(x => x.ProjectCategoryId);
 
+            //1)HasOne WithMany
+            //2)HasMany WithOne
+            //----------------
+            //EntityX HasOne EntityY WithMany EntityX
+            //Project HasOne ProjectCategory WithMany Project 
         }
     }
 }

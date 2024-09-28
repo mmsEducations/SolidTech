@@ -30,11 +30,26 @@ Ef Core yapısında 2 tane Yöntem var
  2)Context
 
  --MsSqlServer Kullanılacaksa 
--UseSqlServer
+ --Microsoft.EntityFrameworkCore.SqlServer indirilmeli
+-UseSqlServer kullanılmalı 
 
--Postgre Sql
+-Postgre Sql Kullanılacaksa
 -UseNpgsql
 
 --
 Add-Migration migrationName 
 Update-Database
+
+---
+DI(Dependecy Injection)
+Dependency Injection (DI), bir sınıfın bağımlılıklarını dışarıdan sağlayarak, sınıflar arasındaki bağımlılıkları azaltan bir tasarım desenidir
+Bu sayede kod daha modüler, test edilebilir ve bakımı daha kolay hale gelir. 
+DI genellikle üç ana biçimde uygulanır: 
+-constructor injection
+-property injection 
+-method injection. En yaygın olanı constructor injection’dır.
+--
+DI'nin Avantajları
+Modülerlik: Sınıflar bağımlılıklarını dışarıdan alır, bu da daha az sıkı bağlanma sağlar.(Solid ilkesi-loosely copling)
+Test Edilebilirlik: Mock nesneleri kullanarak sınıfları test etmek kolaylaşır.
+Bakım Kolaylığı: Bağımlılıkların değişimini yönetmek daha basit hale gelir.

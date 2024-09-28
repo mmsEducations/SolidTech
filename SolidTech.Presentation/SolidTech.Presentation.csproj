@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SolidTech.Business\SolidTech.Business.csproj" />
     <ProjectReference Include="..\SolidTech.Data\SolidTech.Data.csproj" />
   </ItemGroup>
 

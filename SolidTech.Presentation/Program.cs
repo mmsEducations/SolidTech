@@ -1,6 +1,12 @@
+using SolidTech.Business.Businesses;
 using SolidTech.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Servislerin tanýmlandýðý yer burasý
+builder.Services.AddScoped<ServiceBusiness>();
+builder.Services.AddScoped<ProjectCategoryBusiness>();
+
 
 builder.Services.AddControllersWithViews();//Uygulamada Controller ve View yapýsnýn kullanabilmek için bu servisi ekliyoruz 
 

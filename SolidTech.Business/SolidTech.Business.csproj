@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SolidTech.Data\SolidTech.Data.csproj" />
+  </ItemGroup>
+
 </Project>
