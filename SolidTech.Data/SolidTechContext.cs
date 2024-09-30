@@ -20,6 +20,8 @@ namespace SolidTech.Data
         public DbSet<ProjectCategory> ProjectCategories { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<CustomerComment> CustomerComments { get; set; }
 
         //Db Model oluşturma aşamasınd çağrılan bir metottur 
         //Model Yapılandırılması:Tablo ve sutun adları,veri türleri,özelliklerinin belirlenmesi
@@ -30,6 +32,8 @@ namespace SolidTech.Data
             modelBuilder.ApplyConfiguration(new ProjectCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new TeamMemberConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerCommentConfiguration());
 
             modelBuilder.SeedDataCreate();
 

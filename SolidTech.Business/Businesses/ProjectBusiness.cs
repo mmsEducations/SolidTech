@@ -4,18 +4,17 @@ using SolidTech.Data.Entities;
 
 namespace SolidTech.Business.Businesses
 {
-    public class ProjectCategoryBusiness : IProjectCategoryBusiness
+    public class ProjectBusiness : IProjectBusiness
     {
         private readonly SolidTechContext _context;
-        public ProjectCategoryBusiness(SolidTechContext context)
+        public ProjectBusiness(SolidTechContext context)
         {
             _context = context;
         }
 
-        public List<ProjectCategory> ProjectCategories()
+        public List<Project> Projects()
         {
-            return _context.ProjectCategories.ToList();
+            return _context.Projects.ToList();
         }
-
     }
 }

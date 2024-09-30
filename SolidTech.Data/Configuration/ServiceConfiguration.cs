@@ -13,6 +13,7 @@ namespace SolidTech.Data.Configuration
 
 
             builder.Property(x => x.Header)
+                   //.HasColumnName("_header")
                    .IsRequired()
                    .HasMaxLength(200);
 

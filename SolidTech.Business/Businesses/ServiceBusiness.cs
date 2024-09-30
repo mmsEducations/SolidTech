@@ -1,17 +1,29 @@
-﻿using SolidTech.Data;
+﻿using SolidTech.Business.Interfaces;
+using SolidTech.Data;
 using SolidTech.Data.Entities;
 
 namespace SolidTech.Business.Businesses
 {
-    public class ServiceBusiness
+    public class ServiceBusiness : IServiceBusiness
     {
         //radonly değişkenlere sadece constructorda değer atanır buda onun const ile farkını beirler
+
+        #region 1
         private readonly SolidTechContext _context;
-        public ServiceBusiness(SolidTechContext context)
+        #endregion
+
+        #region 2
+        public ServiceBusiness(SolidTechContext context)//Dışardan bir SolidTechContext gönderilecek 
         {
             _context = context;
         }
 
+        public void Athisrsizi()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
         //Constructor injection'ın kuralları 
         //1)Global bir değişken tanımlanır(Clasın direk içerisinde)
         //2)Constructor içerisinde parametre olarak dışarıdan enjecte edilen değişkeni temsilen global değişken ile aynı tipte bir değişken tanımlabır 
@@ -44,5 +56,7 @@ namespace SolidTech.Business.Businesses
     
         */
         #endregion
+
+        //Solid
     }
 }
