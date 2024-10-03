@@ -2,7 +2,7 @@
 
 namespace SolidTech.Business.Interfaces
 {
-    public interface IProjectCategoryBusiness
+    public interface IProjectCategoryService
     {
         List<ProjectCategory> ProjectCategories();
     }

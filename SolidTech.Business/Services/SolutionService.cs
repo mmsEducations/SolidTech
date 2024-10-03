@@ -2,9 +2,9 @@
 using SolidTech.Data;
 using SolidTech.Data.Entities;
 
-namespace SolidTech.Business.Businesses
+namespace SolidTech.Business.Services
 {
-    public class ServiceBusiness : IServiceBusiness
+    public class SolutionService : ISolutionService
     {
         //radonly değişkenlere sadece constructorda değer atanır buda onun const ile farkını beirler
 
@@ -13,7 +13,7 @@ namespace SolidTech.Business.Businesses
         #endregion
 
         #region 2
-        public ServiceBusiness(SolidTechContext context)//Dışardan bir SolidTechContext gönderilecek 
+        public SolutionService(SolidTechContext context)//Dışardan bir SolidTechContext gönderilecek 
         {
             _context = context;
         }
@@ -31,10 +31,10 @@ namespace SolidTech.Business.Businesses
         //4)Program.cs içerisinde kullanılan servisi WebApplication builder'a haber vermemiz gerkir 
 
 
-        public List<Service> GetServices()
+        public List<Solution> GetServices()
         {
 
-            return _context.Services.ToList();
+            return _context.Solutions.ToList();
         }
 
 

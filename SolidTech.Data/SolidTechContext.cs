@@ -19,7 +19,7 @@ namespace SolidTech.Data
         //C# tarafındaki Enittylerin Database objesi olarak kabul edildiği yer 
         public DbSet<ProjectCategory> ProjectCategories { get; set; }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<Service> Services { get; set; }
+        public DbSet<Solution> Solutions { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<CustomerComment> CustomerComments { get; set; }
 
@@ -31,7 +31,7 @@ namespace SolidTech.Data
         {
             modelBuilder.ApplyConfiguration(new ProjectCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
-            modelBuilder.ApplyConfiguration(new ServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new SolutionConfiguration());
             modelBuilder.ApplyConfiguration(new TeamMemberConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerCommentConfiguration());
 
@@ -43,7 +43,10 @@ namespace SolidTech.Data
         //Configurasyon yapıldığında çalıştırılamsını istediğin kodlar buraya yazılır
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=SolidTechDb;Trusted_Connection=True;Encrypt=False");
+            //MsSql
+            //optionsBuilder.UseSqlServer("Server=.;Database=SolidTechDb;Trusted_Connection=True;Encrypt=False");
+            //Not schema adı küçük olamk durumda ve schema adı Search Path ten sonra belirtilmek zorunda 
+            optionsBuilder.UseNpgsql(@"Host=localhost;Database=postgres;Username=postgres;Password=mms;Search Path=solidtechdb");
         }
     }
 }

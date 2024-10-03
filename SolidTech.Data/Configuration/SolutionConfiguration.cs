@@ -4,12 +4,12 @@ using SolidTech.Data.Entities;
 
 namespace SolidTech.Data.Configuration
 {
-    public class ServiceConfiguration : IEntityTypeConfiguration<Service>
+    public class SolutionConfiguration : IEntityTypeConfiguration<Solution>
     {
-        public void Configure(EntityTypeBuilder<Service> builder)
+        public void Configure(EntityTypeBuilder<Solution> builder)
         {
             builder.ToTable("Services");
-            builder.HasKey(x => x.ServiceId);
+            builder.HasKey(x => x.SolutionId);
 
 
             builder.Property(x => x.Header)

@@ -2,7 +2,7 @@
 
 namespace SolidTech.Business.Interfaces
 {
-    public interface ITeamMemberBusiness
+    public interface ITeamMemberService
     {
         List<TeamMember> TeamMemberBusinesss();
     }

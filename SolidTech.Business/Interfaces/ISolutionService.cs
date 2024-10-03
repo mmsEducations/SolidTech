@@ -2,8 +2,8 @@
 
 namespace SolidTech.Business.Interfaces
 {
-    public interface IServiceBusiness
+    public interface ISolutionService
     {
-        List<Service> GetServices();
+        List<Solution> GetServices();
     }
 }

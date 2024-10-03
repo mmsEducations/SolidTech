@@ -8,7 +8,9 @@ namespace SolidTech.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<CustomerComment> builder)
         {
+            //builder.ToTable("CustomerComments", "solidtechdb");
             builder.ToTable("CustomerComments");
+
             builder.HasKey(x => x.CustomerCommentId);
 
             builder.Property(x => x.CustomerName)

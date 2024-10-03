@@ -2,12 +2,12 @@
 using SolidTech.Data;
 using SolidTech.Data.Entities;
 
-namespace SolidTech.Business.Businesses
+namespace SolidTech.Business.Services
 {
-    public class ProjectBusiness : IProjectBusiness
+    public class ProjectService : IProjectService
     {
         private readonly SolidTechContext _context;
-        public ProjectBusiness(SolidTechContext context)
+        public ProjectService(SolidTechContext context)
         {
             _context = context;
         }
