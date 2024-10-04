@@ -1,20 +1,24 @@
-﻿using SolidTech.Business.Interfaces;
+﻿using AutoMapper;
+using SolidTech.Business.Dtos;
+using SolidTech.Business.Interfaces;
 using SolidTech.Data;
-using SolidTech.Data.Entities;
 
 namespace SolidTech.Business.Services
 {
     public class ProjectService : IProjectService
     {
         private readonly SolidTechContext _context;
-        public ProjectService(SolidTechContext context)
+        private readonly IMapper _mapper;
+
+        public ProjectService(SolidTechContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public List<Project> Projects()
+        public List<ProjectDto> Projects()
         {
-            return _context.Projects.ToList();
+            return _mapper.Map<List<ProjectDto>>(_context.Projects.ToList());
         }
     }
 }

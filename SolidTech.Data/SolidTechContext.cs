@@ -18,7 +18,7 @@ namespace SolidTech.Data
 
         //C# tarafındaki Enittylerin Database objesi olarak kabul edildiği yer 
         public DbSet<ProjectCategory> ProjectCategories { get; set; }
-        public DbSet<Project> Projects { get; set; }
+        public DbSet<Project> Projects { get; set; }//Crud 
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<CustomerComment> CustomerComments { get; set; }

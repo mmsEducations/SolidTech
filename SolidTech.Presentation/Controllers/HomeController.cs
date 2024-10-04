@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SolidTech.Business.Dtos;
 using SolidTech.Business.Interfaces;
-using SolidTech.Data.Entities;
 
 namespace SolidTech.Presentation.Controllers
 {
@@ -25,14 +25,14 @@ namespace SolidTech.Presentation.Controllers
         }
         public IActionResult Index()
         {
-            List<Solution> solutions = _solutionService.GetServices();
-            List<ProjectCategory> projectCategories = _projectCategoryService.ProjectCategories();
-            List<Project> projects = _projectService.Projects();
-            List<TeamMember> teamMembers = _teamMemberService.TeamMemberBusinesss();
-            List<CustomerComment> customerComments = _customerCommentService.CustomerComments();
+            List<SolutionDto> solutions = _solutionService.GetServices();
+            List<ProjectCategoryDto> projectCategories = _projectCategoryService.ProjectCategories();
+            List<ProjectDto> projects = _projectService.Projects();
+            List<TeamMemberDto> teamMembers = _teamMemberService.TeamMemberBusinesss();
+            List<CustomerCommentDto> customerComments = _customerCommentService.CustomerComments();
             return View();
 
-            UserEntity userEntity = new UserEntity();
+            UserEntity userEntity = new UserEntity() { Id = 1, Name = "", LastName = "", Number = 12312313 };
 
             UserDto userDto = new UserDto { Name = userEntity.Name, LastName = userEntity.LastName };
         }
@@ -40,6 +40,7 @@ namespace SolidTech.Presentation.Controllers
 
         public class UserEntity
         {
+
             public int Id { get; set; }
             public string Name { get; set; }
             public string LastName { get; set; }

@@ -1,3 +1,4 @@
+using SolidTech.Business.Mappings;
 using SolidTech.Data;
 using SolidTech.Presentation.InFrustracture.Extensions;
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddBusinessServices();
+
+builder.Services.AddAutoMapper(typeof(SolutionMappingProfile));
 
 builder.Services.AddControllersWithViews();//Uygulamada Controller ve View yapýsnýn kullanabilmek için bu servisi ekliyoruz 
 

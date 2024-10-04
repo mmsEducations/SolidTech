@@ -1,4 +1,6 @@
-﻿using SolidTech.Business.Interfaces;
+﻿using AutoMapper;
+using SolidTech.Business.Dtos;
+using SolidTech.Business.Interfaces;
 using SolidTech.Data;
 using SolidTech.Data.Entities;
 
@@ -7,14 +9,18 @@ namespace SolidTech.Business.Services
     public class CustomerCommentService : ICustomerCommentService
     {
         private readonly SolidTechContext _context;
-        public CustomerCommentService(SolidTechContext context)
+        private readonly IMapper _mapper;
+
+        public CustomerCommentService(SolidTechContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public List<CustomerComment> CustomerComments()
+        public List<CustomerCommentDto> CustomerComments()
         {
-            return _context.CustomerComments.ToList();
+            List<CustomerComment> CustomerComments = _context.CustomerComments.ToList();
+            return _mapper.Map<List<CustomerCommentDto>>(CustomerComments);
         }
     }
 }

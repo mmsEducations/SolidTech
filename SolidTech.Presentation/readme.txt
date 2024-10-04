@@ -67,9 +67,11 @@ x nesnesini y nesnesine dönüştürme işini arka planda yapar
 
  "AutoMapper" paketini yüklemek lazım 
  
- Uygulamsı 
+ AutoMapper Entegrasyonu  
  using AutoMapper;
 
+ //Automapperin iki model arasında dönüşüm işlemlerinin adımları(Implementasyon Adımları)
+ //1
 // Kaynak ve hedef nesneleri
 public class Source
 {
@@ -77,12 +79,13 @@ public class Source
     public string Name { get; set; }
 }
 
+//2
 public class Destination
 {
     public int Id { get; set; }
     public string FullName { get; set; }
 }
-
+//3
 // Profil oluşturma
 public class MappingProfile : Profile
 {
@@ -92,6 +95,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.Name));
     }
 }
+
+//4
 //2Kısım 
 public class Startup
 {
@@ -102,7 +107,7 @@ public class Startup
     }
 }
 
-//3
+//5
 public class ExampleService
 {
     private readonly IMapper _mapper;
@@ -119,3 +124,12 @@ public class ExampleService
         return destination;
     }
 }
+//Not: Destination destination = _mapper.Map<DestinationVeriTipi>(sourceData);
+
+
+Not:
+MsSql'e bağlanmak için
+<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+
+PostgreSQL'e bağlanmak için
+<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />

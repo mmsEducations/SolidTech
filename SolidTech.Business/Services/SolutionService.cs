@@ -1,4 +1,6 @@
-﻿using SolidTech.Business.Interfaces;
+﻿using AutoMapper;
+using SolidTech.Business.Dtos;
+using SolidTech.Business.Interfaces;
 using SolidTech.Data;
 using SolidTech.Data.Entities;
 
@@ -8,22 +10,17 @@ namespace SolidTech.Business.Services
     {
         //radonly değişkenlere sadece constructorda değer atanır buda onun const ile farkını beirler
 
-        #region 1
-        private readonly SolidTechContext _context;
-        #endregion
 
-        #region 2
-        public SolutionService(SolidTechContext context)//Dışardan bir SolidTechContext gönderilecek 
+        private readonly SolidTechContext _context;
+        private readonly IMapper _mapper;
+
+
+        public SolutionService(SolidTechContext context, IMapper mapper)//Dışardan bir SolidTechContext gönderilecek 
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public void Athisrsizi()
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
         //Constructor injection'ın kuralları 
         //1)Global bir değişken tanımlanır(Clasın direk içerisinde)
         //2)Constructor içerisinde parametre olarak dışarıdan enjecte edilen değişkeni temsilen global değişken ile aynı tipte bir değişken tanımlabır 
@@ -31,11 +28,30 @@ namespace SolidTech.Business.Services
         //4)Program.cs içerisinde kullanılan servisi WebApplication builder'a haber vermemiz gerkir 
 
 
-        public List<Solution> GetServices()
+        public List<SolutionDto> GetServices()
         {
-
-            return _context.Solutions.ToList();
+            List<Solution> solutions = _context.Solutions.ToList();
+            List<SolutionDto> solutionDtos = _mapper.Map<List<SolutionDto>>(solutions);
+            return solutionDtos;
         }
+
+
+        //public List<Solution> GetServices()
+        //{
+        //    List<Solution> solutions = _context.Solutions.ToList();
+        //    List<SolutionDto> result = new List<SolutionDto>();
+        //    foreach (Solution service in solutions)
+        //    {
+        //        result.Add(new SolutionDto
+        //        {
+        //            SolutionId = service.SolutionId,
+        //            Content = service.Content,
+        //            Header = service.Header,
+        //        })
+        //    }
+
+
+        //}
 
 
         #region Old
@@ -60,3 +76,21 @@ namespace SolidTech.Business.Services
         //Solid
     }
 }
+
+//public class ExampleService
+//{
+//    private readonly IMapper _mapper;
+
+//    public ExampleService(IMapper mapper)
+//    {
+//        _mapper = mapper;
+//    }
+
+//    public Destination Convert(Source source)
+//    {
+//        // Dönüşüm yap
+//        Destination destination = _mapper.Map<Destination>(source);
+//        return destination;
+//    }
+//}
+

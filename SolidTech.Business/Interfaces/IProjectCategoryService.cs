@@ -1,9 +1,9 @@
-﻿using SolidTech.Data.Entities;
+﻿using SolidTech.Business.Dtos;
 
 namespace SolidTech.Business.Interfaces
 {
     public interface IProjectCategoryService
     {
-        List<ProjectCategory> ProjectCategories();
+        List<ProjectCategoryDto> ProjectCategories();
     }
 }
