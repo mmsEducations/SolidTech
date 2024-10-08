@@ -10,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddBusinessServices();
 
 builder.Services.AddAutoMapper(typeof(SolutionMappingProfile));
+builder.Services.AddAutoMapper(typeof(CustomerCommentMappingProfile));
+builder.Services.AddAutoMapper(typeof(ProjectMappingProfile));
+builder.Services.AddAutoMapper(typeof(ProjectCategoryMappingProfile));
+builder.Services.AddAutoMapper(typeof(TeamMemberMappingProfile));
 
 builder.Services.AddControllersWithViews();//Uygulamada Controller ve View yapýsnýn kullanabilmek için bu servisi ekliyoruz 
 

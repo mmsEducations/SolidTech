@@ -4,12 +4,12 @@ using SolidTech.Data.Entities;
 
 namespace SolidTech.Business.Mappings
 {
-    public class ProjectDtoMappingProfile : Profile
+    public class ProjectMappingProfile : Profile
     {
-        public ProjectDtoMappingProfile()
+        public ProjectMappingProfile()
         {
             CreateMap<Project, ProjectDto>()
                      .ReverseMap();
         }
-    } 
+    }
 }

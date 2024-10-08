@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SolidTech.Business.Dtos;
+using SolidTech.Data.Entities;
 
 namespace SolidTech.Business.Mappings
 {
@@ -7,7 +8,7 @@ namespace SolidTech.Business.Mappings
     {
         public CustomerCommentMappingProfile()
         {
-            CreateMap<CustomerCommentDto, CustomerCommentDto>()
+            CreateMap<CustomerComment, CustomerCommentDto>()
                      .ReverseMap();
         }
     }

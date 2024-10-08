@@ -30,30 +30,33 @@ namespace SolidTech.Presentation.Controllers
             List<ProjectDto> projects = _projectService.Projects();
             List<TeamMemberDto> teamMembers = _teamMemberService.TeamMemberBusinesss();
             List<CustomerCommentDto> customerComments = _customerCommentService.CustomerComments();
-            return View();
 
-            UserEntity userEntity = new UserEntity() { Id = 1, Name = "", LastName = "", Number = 12312313 };
+            HomeIndexModel indexModel = new();
+            indexModel.Create(solutions, projectCategories, projects, teamMembers, customerComments);
 
-            UserDto userDto = new UserDto { Name = userEntity.Name, LastName = userEntity.LastName };
-        }
-
-
-        public class UserEntity
-        {
-
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string LastName { get; set; }
-
-            public int Number { get; set; }
-        }
-
-        public class UserDto
-        {
-            public string Name { get; set; }
-            public string LastName { get; set; }
-
+            return View(indexModel);
         }
 
     }
 }
+
+
+/*
+   public IActionResult Index()
+        {
+            List<SolutionDto> solutions = _solutionService.GetServices();
+            List<ProjectCategoryDto> projectCategories = _projectCategoryService.ProjectCategories();
+            List<ProjectDto> projects = _projectService.Projects();
+            List<TeamMemberDto> teamMembers = _teamMemberService.TeamMemberBusinesss();
+            List<CustomerCommentDto> customerComments = _customerCommentService.CustomerComments();
+            ViewBag.Solutions = solutions;
+            ViewBag.Projects = projects;   //@ViewBag.Projects
+            ViewData["Solutions"] = solutions;  //@ViewData["Solutions"]
+            ViewData["Projects"] = projects;
+            TempData["Solutions"] = solutions; //@TempData["Solutions"]
+            TempData["Projects"] = projects;
+            var tuple = Tuple.Create(solutions, projects);
+            View(tuple); //@model Tuple<List<SolutionDto>,List<ProjectDto>> //Model.
+            return View(tuple);
+        }
+ */
