@@ -31,7 +31,7 @@ namespace SolidTech.Presentation.Controllers
             List<TeamMemberDto> teamMembers = _teamMemberService.TeamMemberBusinesss();
             List<CustomerCommentDto> customerComments = _customerCommentService.CustomerComments();
 
-            HomeIndexModel indexModel = new();
+            HomeIndexModel indexModel = new();//   HomeIndexModel indexModel = new HomeIndexModel()
             indexModel.Create(solutions, projectCategories, projects, teamMembers, customerComments);
 
             return View(indexModel);

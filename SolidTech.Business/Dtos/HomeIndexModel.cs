@@ -2,7 +2,6 @@
 {
     public class HomeIndexModel
     {
-        public int number { get; set; }
         public List<SolutionDto>? Solutions { get; set; }
         public List<ProjectCategoryDto>? ProjectCategories { get; set; }
         public List<ProjectDto>? Projects { get; set; }
