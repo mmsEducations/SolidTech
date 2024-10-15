@@ -8,6 +8,7 @@ namespace SolidTech.Data.Entities
         public required string Comment { get; set; }
         public string? Image { get; set; }
         public string? Title { get; set; }
+        public int Order { get; set; }
 
     }
 }

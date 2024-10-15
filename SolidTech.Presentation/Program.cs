@@ -1,19 +1,11 @@
-using SolidTech.Business.Mappings;
-using SolidTech.Data;
-using SolidTech.Presentation.InFrustracture.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Servislerin tanýmlandýðý yer burasý
 
 
-builder.Services.AddBusinessServices();
-
-builder.Services.AddAutoMapper(typeof(SolutionMappingProfile));
-builder.Services.AddAutoMapper(typeof(CustomerCommentMappingProfile));
-builder.Services.AddAutoMapper(typeof(ProjectMappingProfile));
-builder.Services.AddAutoMapper(typeof(ProjectCategoryMappingProfile));
-builder.Services.AddAutoMapper(typeof(TeamMemberMappingProfile));
+builder.Services.AddBusinessServices();//Servie Injections
+builder.Services.AddAutoMapper(); //AutoMapper Injections
 
 builder.Services.AddControllersWithViews();//Uygulamada Controller ve View yapýsnýn kullanabilmek için bu servisi ekliyoruz 
 

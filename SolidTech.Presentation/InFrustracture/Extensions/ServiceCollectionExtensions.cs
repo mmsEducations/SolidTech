@@ -1,5 +1,4 @@
-﻿using SolidTech.Business.Interfaces;
-using SolidTech.Business.Services;
+﻿
 
 namespace SolidTech.Presentation.InFrustracture.Extensions
 {
@@ -13,9 +12,9 @@ namespace SolidTech.Presentation.InFrustracture.Extensions
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ICustomerCommentService, CustomerCommentService>();
             services.AddScoped<ITeamMemberService, TeamMemberService>();
+            services.AddScoped<IMessageService, MessageService>();
 
             return services;
         }
-
     }
 }

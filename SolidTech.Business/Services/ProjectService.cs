@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using SolidTech.Business.Dtos;
-using SolidTech.Business.Interfaces;
-using SolidTech.Data;
-
-namespace SolidTech.Business.Services
+﻿namespace SolidTech.Business.Services
 {
     public class ProjectService : IProjectService
     {
@@ -19,6 +14,11 @@ namespace SolidTech.Business.Services
         public List<ProjectDto> Projects()
         {
             return _mapper.Map<List<ProjectDto>>(_context.Projects.ToList());
+        }
+
+        public List<ProjectDto> GetLastProjects()
+        {
+            return _mapper.Map<List<ProjectDto>>(_context.Projects.OrderByDescending(x => x.CreaDate).Take(6));
         }
     }
 }

@@ -7,6 +7,7 @@
         public required string Header { get; set; }
         public required string Content { get; set; }
         public required string ImageIcon { get; set; }
+        public int Order { get; set; }
 
         //[NotMapped]
         //public required string Contentss { get; set; }

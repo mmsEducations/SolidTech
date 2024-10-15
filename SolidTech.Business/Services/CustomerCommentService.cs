@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using SolidTech.Business.Dtos;
-using SolidTech.Business.Interfaces;
-using SolidTech.Data;
-using SolidTech.Data.Entities;
-
+﻿
 namespace SolidTech.Business.Services
 {
     public class CustomerCommentService : ICustomerCommentService

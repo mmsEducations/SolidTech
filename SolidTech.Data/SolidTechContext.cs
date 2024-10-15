@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SolidTech.Data.Configuration;
-using SolidTech.Data.Entities;
-using SolidTech.Data.Extensions;
-
+﻿
 namespace SolidTech.Data
 {
     public class SolidTechContext : DbContext
@@ -22,6 +18,7 @@ namespace SolidTech.Data
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<CustomerComment> CustomerComments { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         //Db Model oluşturma aşamasınd çağrılan bir metottur 
         //Model Yapılandırılması:Tablo ve sutun adları,veri türleri,özelliklerinin belirlenmesi
@@ -34,6 +31,7 @@ namespace SolidTech.Data
             modelBuilder.ApplyConfiguration(new SolutionConfiguration());
             modelBuilder.ApplyConfiguration(new TeamMemberConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerCommentConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageConfiguration());
 
             modelBuilder.SeedDataCreate();
 

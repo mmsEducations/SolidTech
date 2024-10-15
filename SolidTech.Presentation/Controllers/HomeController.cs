@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SolidTech.Business.Dtos;
-using SolidTech.Business.Interfaces;
-
+﻿
 namespace SolidTech.Presentation.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ISolutionService _solutionService;
         private readonly IProjectCategoryService _projectCategoryService;
@@ -28,12 +25,13 @@ namespace SolidTech.Presentation.Controllers
             List<SolutionDto> solutions = _solutionService.GetServices();
             List<ProjectCategoryDto> projectCategories = _projectCategoryService.ProjectCategories();
             List<ProjectDto> projects = _projectService.Projects();
-            List<TeamMemberDto> teamMembers = _teamMemberService.TeamMemberBusinesss();
+
+            List<TeamMemberDto> teamMembers = _teamMemberService.TeamMembers();
             List<CustomerCommentDto> customerComments = _customerCommentService.CustomerComments();
 
             HomeIndexModel indexModel = new();//   HomeIndexModel indexModel = new HomeIndexModel()
             indexModel.Create(solutions, projectCategories, projects, teamMembers, customerComments);
-
+            ViewBag.GetLastProjects = _projectService.GetLastProjects();
             return View(indexModel);
         }
 

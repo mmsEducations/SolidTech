@@ -5,10 +5,11 @@
         public int ProjectId { get; set; }
         public int ProjectCategoryId { get; set; }
 
-        public string Name { get; set; }
-        public string Image { get; set; }
+        public required string Name { get; set; }
+        public required string Image { get; set; }
+        public int Order { get; set; }
 
-        public virtual ProjectCategory ProjectCategory { get; set; } //Navigation Property
+        public virtual ProjectCategory? ProjectCategory { get; set; } //Navigation Property
     }
 
 }

@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SolidTech.Data.Entities;
-
-namespace SolidTech.Data.Configuration
+﻿namespace SolidTech.Data.Configuration
 {
     public class ProjectConfiguration : IEntityTypeConfiguration<Project>
     {

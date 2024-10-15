@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SolidTech.Business.Dtos;
-using SolidTech.Business.Interfaces;
-
+﻿
 namespace SolidTech.Presentation.Controllers
 {
-    public class ProjectController : Controller
+    public class ProjectController : BaseController
     {
         private readonly IProjectCategoryService _categoryService;
         private readonly IProjectService _projectService;

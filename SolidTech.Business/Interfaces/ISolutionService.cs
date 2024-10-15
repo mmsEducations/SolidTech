@@ -1,6 +1,4 @@
-﻿using SolidTech.Business.Dtos;
-
-namespace SolidTech.Business.Interfaces
+﻿namespace SolidTech.Business.Interfaces
 {
     public interface ISolutionService
     {

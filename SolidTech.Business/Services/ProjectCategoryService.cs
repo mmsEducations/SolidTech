@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using SolidTech.Business.Dtos;
-using SolidTech.Business.Interfaces;
-using SolidTech.Data;
-
-namespace SolidTech.Business.Services
+﻿namespace SolidTech.Business.Services
 {
     public class ProjectCategoryService : IProjectCategoryService
     {

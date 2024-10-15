@@ -1,14 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SolidTech.Data.Entities;
-
-namespace SolidTech.Data.Configuration
+﻿namespace SolidTech.Data.Configuration
 {
     public class SolutionConfiguration : IEntityTypeConfiguration<Solution>
     {
         public void Configure(EntityTypeBuilder<Solution> builder)
         {
-            builder.ToTable("Services");
+            builder.ToTable("Solutions");
             builder.HasKey(x => x.SolutionId);
 
 

@@ -5,5 +5,7 @@ namespace SolidTech.Data.Entities
     {
         public int ProjectCategoryId { get; set; }
         public required string CategoryName { get; set; }
+        public int Order { get; set; }
+
     }
 }

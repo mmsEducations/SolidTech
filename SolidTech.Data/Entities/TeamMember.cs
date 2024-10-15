@@ -8,6 +8,7 @@ namespace SolidTech.Data.Entities
         public required string Title { get; set; }
         public required string Linkedin { get; set; }
         public required string Image { get; set; }
+        public int Order { get; set; }
 
         //public required string FaceBook { get; set; }
         //public required string Twitter { get; set; }

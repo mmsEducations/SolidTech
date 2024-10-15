@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SolidTech.Data.Entities;
-
+﻿
 namespace SolidTech.Data.Extensions
 {
     public static class SeedDataCreator
@@ -128,8 +126,6 @@ namespace SolidTech.Data.Extensions
             );
             #endregion
 
-
-
             #region TeamMember
             modelBuilder.Entity<TeamMember>().HasData(
               new TeamMember
@@ -157,8 +153,6 @@ namespace SolidTech.Data.Extensions
             );
             #endregion
 
-
-
             #region CustomerComment
             modelBuilder.Entity<CustomerComment>().HasData(
               new CustomerComment
@@ -185,6 +179,22 @@ namespace SolidTech.Data.Extensions
                }
             );
             #endregion
+
+            #region Messge
+            modelBuilder.Entity<Message>().HasData(
+              new Message
+              {
+                  MessageId = 1,
+                  Name = "Tuğçe Toker",
+                  Email = "tugcetoker@gmail.com",
+                  CreaDate = DateTime.UtcNow,
+                  IsDeleted = false,
+                  MessageContent = "Adalet,ahlak",
+                  MessageHeader = "Adalat mülkün temelidir"
+              }
+            );
+            #endregion
+
         }
     }
 }
