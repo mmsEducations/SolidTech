@@ -16,6 +16,14 @@
             List<MessageDto> messageDtos = _mapper.Map<List<MessageDto>>(messages);
             return messageDtos;
         }
+
+        public int AddMessage(MessageDto messageDto)
+        {
+            Message message = _mapper.Map<Message>(messageDto);
+
+            _context.Messages.Add(message);
+            return _context.SaveChanges();
+        }
     }
 
 

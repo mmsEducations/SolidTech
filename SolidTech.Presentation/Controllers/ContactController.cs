@@ -16,5 +16,12 @@ namespace SolidTech.Presentation.Controllers
             List<MessageDto> messages = _messageService.Messages();
             return View();
         }
+
+        [HttpPost]
+        public IActionResult AddAcontact(string name, string email, string subject, string message)
+        {
+            int messages = _messageService.AddMessage(new MessageDto { Email = email, Name = name, MessageHeader = subject, MessageContent = message });
+            return RedirectToAction("Index");
+        }
     }
 }
